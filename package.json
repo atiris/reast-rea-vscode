@@ -1,0 +1,35 @@
+{
+  "name": "rea-language",
+  "displayName": "REA Language",
+  "description": "Syntax highlighting for the REA interactive fiction language (.rea files)",
+  "version": "0.1.0",
+  "publisher": "reast",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/atiris/reast"
+  },
+  "engines": {
+    "vscode": "^1.75.0"
+  },
+  "categories": ["Programming Languages"],
+  "keywords": ["rea", "reast", "interactive fiction", "syntax highlighting", "stories"],
+  "icon": "icon.png",
+  "contributes": {
+    "languages": [
+      {
+        "id": "rea",
+        "aliases": ["REA", "rea"],
+        "extensions": [".rea"],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "rea",
+        "scopeName": "source.rea",
+        "path": "./syntaxes/rea.tmLanguage.json"
+      }
+    ]
+  }
+}

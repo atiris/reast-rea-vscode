@@ -1,0 +1,144 @@
+{// This is a sample REA story demonstrating all syntax constructs}
+
+# The Enchanted Forest
+
+{set player.name = "Aria"}
+{set player.gold = 50}
+{set player.items = ["torch", "map"]}
+
+---
+
+Welcome, {player.name}! You stand at the edge of an _enchanted_ forest.
+The *ancient* trees whisper secrets in a language you _*almost*_ understand.
+
+= The adventure begins now.
+
+| "Not all who wander are lost," says the sign.
+|| But some certainly are.
+
+{define character elena begin}
+  name: Elena the Guide
+  image: media/elena.png
+{end define}
+
+{define role scout begin}
+  max: 1
+  description: "The one who goes first"
+{end define}
+
+[#clearing]
+
+@elena: "Follow me into the forest. I know the way."
+@narrator: The path grew narrow and dark.
+
+[!Forest clearing < media/clearing.jpg]
+[?Ambient < media/forest-ambience.ogg volume=0.3, loop]
+
+* {player.gold >= 10} [Pay the toll]
+  {set player.gold = player.gold - 10}
+  The gate opens with a groan.
+  -> bridge
+
+* [Sneak past]
+  {if random(1, 6) > 3 begin}
+    You slip through unnoticed.
+    -> bridge
+  {else}
+    A guard spots you!
+    -> caught
+  {end if}
+
++ [Look around]
+  You see a rusty key half-buried in leaves.
+  {give rusty_key}
+  [@elena] nods approvingly. You pick up [$rusty_key].
+
+- The paths converge.
+
+{function greet(name, title = "adventurer") begin}
+  Welcome, {name} the {title}!
+{end function}
+
+{greet(player.name)}
+
+{once begin}
+  This is your first time here.
+{then}
+  You've been here before.
+{end once}
+
+The door was {first|closed|open|broken}.
+Choose a color: {~red|blue|green|yellow}.
+The clock strikes {&one|two|three}.
+
+{for item in player.items begin}
+  - You have: {item}
+{end for}
+
+{while player.gold > 0 begin}
+  {set player.gold = player.gold - 1}
+{end while}
+
+{switch player.items[0] begin}
+  {case "torch"} Light fills the room.
+  {case "map"} You know which way to go.
+  {default} You proceed carefully.
+{end switch}
+
+{require gps}
+{waypoint bridge, @@48.14;17.10/50 begin}
+  You arrive at the old stone bridge.
+{end waypoint}
+
+{timer duration=30, on_expire="-> timeout" begin}
+  Quick! Cross the bridge before it collapses!
+{end timer}
+
+{vote timeout=60 begin}
+  * [Go left]
+  * [Go right]
+{end vote}
+
+{broadcast begin}
+  Everyone hears a distant roar.
+{end broadcast}
+
+{whisper to="scout" begin}
+  Only the scout sees: there are tracks in the mud.
+{end whisper}
+
+{voice speed=3, emotion="whisper" begin}
+  The cave echoed with ancient whispers...
+{end voice}
+
+{input name=player_guess, type="number", min=1, max=100}
+{button label="Submit", target=check_guess}
+
+{set shared.score = shared.score + 1}
+{strict on}
+{todo: Add more branching here}
+
+{comment begin}
+  This section is still being written.
+  Don't forget to add the boss fight.
+{end comment}
+
+{raw begin}
+  This text is {not interpreted} as commands.
+  Even [this] stays literal.
+{end raw}
+
+## The End
+
+You have {player.gold} gold remaining.
+{player.gold > 0 ? "Not bad!" : "Completely broke."}
+
+The journey was {length(player.items)} steps long.
+Your score: {abs(shared.score)} / {max(10, shared.score)}.
+
+[Continue > #clearing]
+[Read more > https://rea.st]
+
+[^1]: The Enchanted Forest is a well-known location in REA stories.
+
+-----

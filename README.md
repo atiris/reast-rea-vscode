@@ -4,7 +4,7 @@ Syntax highlighting for the [Rea interactive fiction language](https://rea.st) u
 
 ## Features
 
-- Full syntax highlighting for `.rea` files
+- Full syntax highlighting for `.rea` files and `.rext` extension modules
 - All Rea constructs: commands `{ }`, references `[ ]`, formatting, choices, diverts
 - Code folding on headings and block commands (`begin`/`end`)
 - Auto-closing pairs for brackets, quotes, and formatting markers
@@ -24,7 +24,7 @@ code --install-extension rea-language-0.1.0.vsix
 
 1. Open `tools/vscode-rea/` in VS Code
 2. Press `F5` to launch Extension Development Host
-3. Open any `.rea` file to see highlighting
+3. Open any `.rea` or `.rext` file to see highlighting
 
 ## Highlighted Elements
 

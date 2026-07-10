@@ -32,7 +32,7 @@ The *ancient* trees whisper secrets in a language you _*almost*_ understand.
 @narrator: The path grew narrow and dark.
 
 [!Forest clearing < media/clearing.jpg]
-[?Ambient < media/forest-ambience.ogg volume=0.3, loop]
+[?Ambient < media/forest-ambience.ogg, volume=0.3, loop]
 
 * {player.gold >= 10} [Pay the toll]
   {set player.gold = player.gold - 10}

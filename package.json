@@ -2,7 +2,7 @@
   "name": "rea-language",
   "displayName": "REA Language",
   "description": "Syntax highlighting for the REA interactive fiction language (.rea/.rext files)",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "publisher": "reast",
   "license": "MIT",
   "repository": {

@@ -1,4 +1,4 @@
-{// This is a sample REA story demonstrating all syntax constructs}
+{comment This is a sample REA story demonstrating all syntax constructs}
 
 # The Enchanted Forest
 
@@ -115,8 +115,7 @@ The clock strikes {&one|two|three}.
 {button label="Submit", target=check_guess}
 
 {set shared.score = shared.score + 1}
-{strict on}
-{todo: Add more branching here}
+{todo Add more branching here}
 
 {comment begin}
   This section is still being written.

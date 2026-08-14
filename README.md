@@ -8,7 +8,7 @@ Syntax highlighting for the [Rea interactive fiction language](https://rea.st) u
 - All Rea constructs: commands `{ }`, references `[ ]`, formatting, choices, diverts
 - Code folding on headings and block commands (`begin`/`end`)
 - Auto-closing pairs for brackets, quotes, and formatting markers
-- Comment toggling (`{// ...}` and `{comment begin}...{end comment}`)
+- Comment toggling (`{comment ...}` and `{comment begin}...{end comment}`)
 
 ## Installation
 
@@ -39,7 +39,7 @@ code --install-extension rea-language-0.1.0.vsix
 | Variables    | `{player.name}`     | Variable           |
 | Functions    | `{random(1,6)}`     | Function call      |
 | Card refs    | `[@elena]` `[$key]` | Entity (card)      |
-| Comments     | `{// note}`         | Comment            |
+| Comments     | `{comment note}`    | Comment            |
 | Media        | `[!alt < src]`      | Link + string      |
 | Formatting   | `_italic_ *bold*`   | Markup             |
 | Varying text | `{first\|second}`   | String (varying)   |

@@ -117,6 +117,11 @@ The clock strikes {&one|two|three}.
 {set shared.score = shared.score + 1}
 {todo Add more branching here}
 
+{todo begin}
+  Rewrite the ending.
+  Then the middle.
+{end todo}
+
 {comment begin}
   This section is still being written.
   Don't forget to add the boss fight.

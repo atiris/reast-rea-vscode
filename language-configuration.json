@@ -1,6 +1,5 @@
 {
   "comments": {
-    "lineComment": "{comment ",
     "blockComment": ["{comment begin}", "{end comment}"]
   },
   "brackets": [

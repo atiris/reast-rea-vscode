@@ -10,6 +10,9 @@
       "include": "#comment-block"
     },
     {
+      "include": "#todo-block"
+    },
+    {
       "include": "#comment-inline"
     },
     {
@@ -60,7 +63,7 @@
   ],
   "repository": {
     "comment-inline": {
-      "match": "\\{(?:comment|todo)\\s+(?!begin\\})[^}]*\\}",
+      "match": "\\{comment\\s+(?!begin\\})[^}]*\\}",
       "name": "comment.line.rea"
     },
     "comment-block": {
@@ -68,6 +71,22 @@
       "end": "\\{end\\s+comment\\}",
       "name": "comment.block.rea",
       "contentName": "comment.block.content.rea"
+    },
+    "todo-block": {
+      "begin": "\\{todo\\s+begin\\}",
+      "end": "\\{end\\s+todo\\}",
+      "name": "comment.block.todo.rea",
+      "contentName": "comment.todo.text.rea",
+      "beginCaptures": {
+        "0": {
+          "name": "keyword.other.todo.rea"
+        }
+      },
+      "endCaptures": {
+        "0": {
+          "name": "keyword.other.todo.rea"
+        }
+      }
     },
     "raw-block": {
       "begin": "\\{raw\\s+begin\\}",
@@ -412,7 +431,7 @@
       }
     },
     "command-todo": {
-      "match": "\\{(todo):\\s*([^}]*)\\}",
+      "match": "\\{(todo)\\s+(?!begin\\})([^}]*)\\}",
       "captures": {
         "1": {
           "name": "keyword.other.todo.rea"
@@ -475,7 +494,7 @@
       }
     },
     "command-expression": {
-      "begin": "\\{(?![/!@#$%])",
+      "begin": "\\{(?![!@#$%])",
       "end": "\\}",
       "name": "meta.expression.rea",
       "beginCaptures": {

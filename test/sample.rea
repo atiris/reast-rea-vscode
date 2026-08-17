@@ -86,7 +86,7 @@ The clock strikes {&one|two|three}.
 {end switch}
 
 {require gps}
-{waypoint bridge, @@48.14;17.10/50 begin}
+{waypoint bridge, circle(@(48.14, 17.10), 50) begin}
   You arrive at the old stone bridge.
 {end waypoint}
 

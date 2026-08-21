@@ -57,11 +57,13 @@ The `syntaxes/rea.tmLanguage.json` TextMate grammar is compatible with:
 
 ## Development
 
-The grammar is the single source of truth. When Rea syntax evolves:
+`syntaxes/rea.tmLanguage.json` is the canonical grammar. The docs site needs the file inside its own package (VitePress imports it from `.vitepress/config.ts`, and the two live in separate submodules), so it keeps a mirror. When Rea syntax evolves:
 
 1. Update `syntaxes/rea.tmLanguage.json`
-2. Copy to `modules/docs/.vitepress/rea.tmLanguage.json` for docs
+2. Copy it over `modules/docs/.vitepress/rea.tmLanguage.json` — never edit that copy directly
 3. Rebuild VSIX for distribution
+
+The orchestrator's `scripts/check-grammar-sync.mjs` compares the two as normalized JSON in pre-commit and in CI, so a forgotten step 2 fails the next commit instead of drifting quietly.
 
 ## License
 

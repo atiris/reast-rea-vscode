@@ -16,15 +16,9 @@ The *ancient* trees whisper secrets in a language you _*almost*_ understand.
 | "Not all who wander are lost," says the sign.
 || But some certainly are.
 
-{define character elena begin}
-  name: Elena the Guide
-  image: media/elena.png
-{end define}
+{define character elena name="Elena the Guide", image="media/elena.png"}
 
-{define role scout begin}
-  max: 1
-  description: "The one who goes first"
-{end define}
+{define role scout max=1, description="The one who goes first"}
 
 [#clearing]
 
